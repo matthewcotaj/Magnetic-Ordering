@@ -10,6 +10,12 @@ def _random_unit_vector():
 
 
 @njit(cache=True)
+def _seed_numba(seed):
+    # numba has its own RNG; np.random.seed from regular Python doesn't reach it
+    np.random.seed(seed)
+
+
+@njit(cache=True)
 def _local_field(spins, i, j, k, L):
     ip, im = (i + 1) % L, (i - 1) % L
     jp, jm = (j + 1) % L, (j - 1) % L
@@ -73,6 +79,8 @@ def run_temperature_sweep(L, T_list, n_equil=2000, n_sample=4000, J=1.0, seed=No
     """Anneal from high to low T, collecting equilibrium averages at each step."""
     N = L ** 3
     spins = init_spins(L, seed=seed)
+    if seed is not None:
+        _seed_numba(seed)
 
     E_avg, E2_avg = [], []
     M_avg, M2_avg, M4_avg = [], [], []
