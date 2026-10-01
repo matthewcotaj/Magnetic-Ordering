@@ -45,3 +45,7 @@ Opens a window with a live spin slice (arrows for the in-plane component, color 
 ## Notes
 
 Units are J = kB = 1 throughout, standard for this kind of model. Swapping in real exchange coupling and comparing directly against SQUID data would be the natural next step.
+
+## Live demo
+
+Interactive browser version (live lattice + temperature sweep): https://matthewcotaj.github.io/Website/projects/magnetism/index.html
