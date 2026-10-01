@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 from simulation import run_temperature_sweep
 from analysis import (
-    specific_heat, susceptibility, binder_cumulant, curie_weiss_fit,
+    specific_heat, susceptibility, binder_cumulant, curie_weiss_fit, susceptibility_full,
     tc_from_binder_crossing, tc_from_susceptibility_peak,
 )
 
@@ -98,7 +98,7 @@ def plot_binder(results, tc_est):
 
 def plot_curie_weiss(result, tc_est):
     T = result["T"]
-    chi = susceptibility(result)
+    chi = susceptibility_full(result)
     T_min = (tc_est or T.mean()) * 1.3
     C, theta = curie_weiss_fit(T, chi, T_min)
     print(f"Curie-Weiss fit (L={result['L']}, T > {T_min:.2f}): C = {C:.3f}, theta = {theta:.3f}")

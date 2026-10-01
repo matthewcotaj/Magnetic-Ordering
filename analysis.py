@@ -10,6 +10,12 @@ def susceptibility(result):
     T, N = result["T"], result["N"]
     return (result["M2"] - result["M"] ** 2) / (N * T)
 
+def susceptibility_full(result):
+    # <M^2>/(N T): the right chi in the paramagnetic phase, where the
+    # connected form subtracts a large finite-size <|M|>^2 and suppresses chi
+    T, N = result["T"], result["N"]
+    return result["M2"] / (N * T)
+
 
 def binder_cumulant(result):
     return 1.0 - result["M4"] / (3.0 * result["M2"] ** 2)
