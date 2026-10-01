@@ -25,6 +25,12 @@ Takes about 1.5 minutes on a laptop. Runs 3 lattice sizes (6, 8, 10) across a te
 - `binder_cumulant.png`: Binder cumulant curves for each L, used to locate Tc independent of system size
 - `curie_weiss.png`: 1/chi fit to a Curie-Weiss law in the paramagnetic regime
 
+![Susceptibility peak vs lattice size](figures/susceptibility.png)
+
+![Binder cumulant](figures/binder_cumulant.png)
+
+![Curie-Weiss fit](figures/curie_weiss.png)
+
 Tc comes out around 1.50 J/kB from the susceptibility peak, close to the known value for this model (~1.44 J/kB), which is a decent sanity check that the simulation is doing what it should. The Binder cumulant crossing gives a consistent number but needs a lot more statistics than a quick run provides to be clean, so I'm using it as a secondary check rather than the primary estimate.
 
 ## Live view
